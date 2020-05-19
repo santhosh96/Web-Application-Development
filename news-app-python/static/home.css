@@ -1,0 +1,527 @@
+/*
+    Styling for the mainscreen page which has the following
+    1. Left Menu (Common for both the screens)
+    2. Top left headline slide
+    3. Top right word cloud
+    4. CNN card headline section
+    5. Fox-News card headline section
+*/
+
+/* 
+    Base container which encloses the whole application
+*/
+.app-window {
+    position: relative;
+    top: 10px;
+    width: 825px;
+    height: 100%;
+    margin: auto;
+}
+
+/*
+    Styling for the menu button, which has Google News and Search as options
+*/
+ul {
+    list-style-type: none;
+    margin-top: 10px;
+    padding: 0;
+    width: 135px;
+}
+
+.search-menu {
+    position: fixed;
+    top: 8px;
+    width: 135px;
+}
+
+.search-button {
+    text-align: center;
+    display: block;
+    padding: 8px 16px;
+    font-family: Georgia;
+    text-decoration: none;
+    font-size: 16px;
+    width: 105px;
+    border: 1px solid #adaaaa;
+    border-radius: 2px;
+    transition-duration: 0.4s;
+    background-color: #F5F5F5;
+}
+
+div.search-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.active {
+    background-color:#454545;;
+    color:white;
+}
+
+/*
+    Styling for the homescreen page that shows headlines, worcloud from google news
+*/
+
+#news-section {
+    position: absolute;
+    top: 0px;
+    width: 690px;
+    height: 100%;
+    left: 135px;
+}
+
+/*
+    Styling for healine slideshow
+*/
+
+.headline-slide {
+    position: relative;
+    width: 375px;
+    height: 225px;
+    left: 32px;
+}
+
+.slide-img {
+    width: 375px;
+    height: 225px;
+    object-fit: fill;
+}
+
+.caption {
+    width: 375px;
+    position: absolute;
+    text-align: center;
+    font-family: Georgia;
+    color: white;
+    bottom: 0px;
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.description {
+    font-size: 10px;
+}
+
+/*
+    Styling for wordcloud rendered by fetching words from titles of all news source
+*/
+
+#cloud_viz {
+    position: absolute;
+    left: 390px;
+    top: 0px;
+    margin-left: 35px;
+    width: 263px;
+    height: 225px;
+}
+
+/*
+    Styling for the body that contains news headline in card format
+*/
+
+.news-main {
+    height: 100%;
+}
+
+/*
+    Structure for the CNN section of the headline
+*/
+
+.cnn-headline-title {
+    position: relative;
+    top: 35px;
+    text-align: center;
+    font-family: Georgia;
+    font-weight: bold;
+    width: 673px;
+    left: 15px;
+    font-size: 25px;
+    border-bottom: 1.5px dotted black;
+    padding-bottom: 5px;
+}
+
+.cnn-headline-table {
+    position: relative;
+    left: 12px;
+    top: 40px;
+    display: table;
+    border-spacing: 6px;
+}
+
+.cnn-headline-row {
+    display: table-row;
+}
+
+a.news-card {
+    display: table-cell;
+    text-decoration: none;
+    width: 160px;
+    border: 1px solid #b5b3b3;
+    background-color: #eeeeee;
+    box-shadow: 1px 1px #b5b3b3;
+    border-radius: 4px;
+}
+
+/*
+    Common styling for the contents of the headline cards
+*/
+
+.card-img {
+    width: 160px; 
+    height: 113px;
+    border-radius: 4px;
+    object-fit: fill;
+}
+
+.card-content {
+    width: 160px;
+    position: relative;
+    text-align: center;
+    font-family: Georgia;
+    color: black;
+}
+
+.card-title {
+    font-size: 15px;
+}
+
+.card-description {
+    position: relative;
+    font-size: 11px;
+    top: -10px;
+}
+
+/*
+    Structure for the Fox-News section of the headline
+*/
+
+.fox-headline-title {
+    position: relative;
+    top: 65px;
+    text-align: center;
+    font-family: Georgia;
+    font-weight: bold;
+    width: 673px;
+    left: 15px;
+    font-size: 25px;
+    border-bottom: 1.5px dotted black;
+    padding-bottom: 5px;
+}
+
+.fox-headline-table {
+    position: relative;
+    left: 12px;
+    top: 70px;
+    display: table;
+    border-spacing: 6px;
+}
+
+.fox-headline-row {
+    display: table-row;
+}
+
+/*==========================================================================================================*/
+
+/*
+    Styling for the search page that enables searching specific news articles
+*/
+
+#search-section {
+    display: none;
+    position: absolute;
+    top: 0px;
+    width: 690px;
+    height: 100%;
+    left: 135px;
+}
+
+/*
+    Styling for the search form
+*/
+
+.search-form {
+    position: relative;
+    top: 5px;
+    left: 50px;
+    width: 600px;
+    height: 133px;
+    background-color: #F5F5F5;
+    border-radius: 3px;
+}
+
+label {
+    font-size: 13px;
+    padding-right: 10px;
+}
+
+input {
+    height: 25px;
+    border: none;
+}
+
+.row-1 {
+    position: relative;
+    top: 20px;
+}
+
+.keyword {
+    display: inline-block;
+    position: relative;
+    left: 10px;
+}
+
+#keyword {
+    width: 100px;
+    padding-left: 5px;
+}
+
+.from {
+    display: inline-block;
+    position: relative;
+    left: 25px;
+}
+
+#from {
+    width: 125px;
+    padding-left: 5px;
+}
+
+.to {
+    display: inline-block;
+    position: relative;
+    right: -40px;
+}
+
+#to {
+    width: 125px;
+    padding-left: 5px;
+}
+
+.row-2 {
+    position: relative;
+    top: 35px;
+}
+
+.category {
+    display: inline-block;
+    position: relative;
+    left: 145px;
+}
+
+.category-label {
+    padding-right: 5px;
+}
+
+#category {
+    text-align: center;
+    width: 95px;
+}
+
+.source {
+    display: inline-block;
+    position: relative;
+    left: 150px;
+}
+
+.source-label {
+    padding-right: 5px;
+}
+
+#source {
+    text-align: center;
+    width: 95px;
+}
+
+sup {
+    color: red;
+    position: relative;
+    top: 4px;
+}
+
+.row-3 {
+    position: relative;
+    top: 50px;
+    text-align: center;
+}
+
+.form-button {
+    text-decoration: none;
+    font-size: 10px;
+    height: 20px;
+    width: 50px;
+    border: 1px solid #F5F5F5;
+    margin-right: 10px;
+    transition-duration: 0.4s;
+}
+
+button.form-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input.form-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/*
+    Styling for the search results displayed as expandable cards
+*/
+
+.form-result {
+    position: relative;
+    left: 80px;
+    top: 25px;
+    width: 540px;
+}
+
+/*
+    Styling for the small cards displaying title and truncated description text
+*/
+
+.search-card {
+    position: relative;
+    cursor: pointer;
+    width: 540px;
+    min-height: 90px;
+    background-color: #F5F5F5;
+    border: 1px solid #adaaaa;
+    border-radius: 3px;
+}
+
+.search-card:hover {
+    box-shadow: 0px 10px 20px 5px #b5b3b3;
+    z-index: 10;
+}
+
+.search-card-img {
+    position: relative;
+    top: 18px;
+    left: 18px;
+    width: 56px;
+    height: 56px;
+}
+
+#search-card-img {
+    width: 56px;
+    height: 56px;
+}
+
+.search-text-content {
+    position: relative;
+    width: 400px;
+    left: 100px;
+    top: -38px;
+    margin-top: 0px;
+    margin-bottom: -35px;
+    bottom: 0px;
+}
+
+.search-text-title {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.search-text-body {
+    font-size: 12px;
+    white-space: nowrap; 
+    width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+}
+
+/*
+    Styling for the buttons of show more and show less
+*/
+
+.show-button {
+    position: relative;
+    top: 10px;
+    left: 310px;
+    text-decoration: none;
+    font-size: 12px;
+    height: 23px;
+    width: 90px;
+    border: 1px solid #F5F5F5;
+    transition-duration: 0.4s;
+}
+
+button.show-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#show-more {
+    margin-top: 25px;
+    display: none;
+}
+
+#show-less {
+    margin-top: 25px;
+    display: none;
+}
+
+/*
+    Styling for the exapnded cards displaying more information
+*/
+
+.search-card-expanded {
+    position: relative;
+    width: 540px;
+    background-color: #F5F5F5;
+    border: 1px solid #adaaaa;
+    border-radius: 3px;
+    margin-top: 8px;
+}
+
+.search-card-expanded:hover {
+    /* box-shadow: 5px 5px 10px #b5b3b3, -5px 0px 5px #b5b3b3; */
+    box-shadow: 0px 10px 20px 5px #b5b3b3;
+    z-index: 10;
+}
+
+.search-text-content-expanded {
+    position: relative;
+    width: 400px;
+    left: 100px;
+    top: -38px;
+    margin-top: 0px;
+    margin-bottom: -35px;
+}
+
+#list-data {
+    margin-bottom: 3px;
+}
+
+.search-text-title-expanded {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 17px;
+}
+
+.search-text-body-expanded {
+    font-size: 12px;
+}
+
+a.source-link:hover {color: red;}
+
+a.source-link:visited {color: purple;}
+
+.close {
+    background-color: #F5F5F5;
+    float: right;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+}
+
+.close-label {
+    font-size: 20px;
+    color: purple;
+}
+
+.close-label:active {
+    color: red;
+}
