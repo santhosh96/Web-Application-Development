@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>News</title>
+        <link rel=stylesheet type=text/css href="static/home.css">
+        <script>var url = "http://127.0.0.1:9000/";</script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/holtzy/D3-graph-gallery@master/LIB/d3.layout.cloud.js"></script>
+        
+        <script src="static/headline_slide.js"></script>
+        <script src="static/wordcloud.js"></script>
+        <script src="static/cnn_cards.js"></script>
+        <script src="static/fox_cards.js"></script>
+        <script src="static/fetch_source.js"></script>
+        <script src="static/fetch_result.js"></script>
+        <script src="static/search_helper.js"></script>
+    </head>
+    <body onload="clear_form();">
+        
+        <div class="container app-window">
+            
+            <div class="search-menu">
+                <ul class="search-list">
+                    <li><div id="news" onclick="news('news-section')" class="search-button active">Google News</div></li>
+                    <li><div id="search" onclick="search('search-section')" class="search-button">Search</div></li>
+                </ul>
+            </div>
+
+            <div id="news-section">
+                <div class="news-head">
+                    <div class="headline-slide" id="head-slide">
+                    </div>
+                    
+                    <div id="cloud_viz"></div>
+                </div>
+
+                <div class="news-main">
+                    
+                    <div class="cnn-headline-title">CNN</div>
+                    <div class="cnn-headline-table">
+                        <div class="cnn-headline-row" id="cnn-head-row"></div>
+                    </div>
+
+                    <div class="fox-headline-title">Fox News</div>
+                    <div class="fox-headline-table">
+                        <div class="fox-headline-row" id="fox-head-row"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="search-section">
+
+                <form class="search-form" id="search-form" method="POST" onsubmit="event.preventDefault()">
+                    <div class="row-1">
+                        <div class="keyword">
+                            <label for="keyword">Keyword <sup>*</sup></label>
+                            <input type="text" id="keyword" name="keyword" required>
+                        </div>
+                        <div class="from">
+                            <label for="from">From <sup>*</sup></label>
+                            <input type="date" id="from" name="from" required>
+                            <script>from_date_set();</script>
+                        </div>
+                        <div class="to">
+                            <label for="to">To <sup>*</sup></label>
+                            <input type="date" name="to" id="to" required><br>
+                            <script>to_date_set();</script>
+                        </div>
+                    </div>
+                    
+                    <div class="row-2">
+                        <div class="category">
+                            <label for="category" class="category-label">Category</label>
+                            <select name="category" id="category" onchange="fetch_source()">
+                                <option value="all" selected>all</option>
+                                <option value="business">business</option>
+                                <option value="entertainment">entertainment</option>
+                                <option value="general">general</option>
+                                <option value="health">health</option>
+                                <option value="science">science</option>
+                                <option value="sports">sports</option>
+                                <option value="technology">technology</option>
+                            </select>
+                        </div>
+                        <div class="source">
+                            <label for="source" class="source-label">Source</label>
+                            <select name="source" id="source">
+                                <script>fetch_source()</script>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="row-3">
+                        <input type="submit" id="form-sub" class="form-button" value="Search">
+                        <button class="form-button" onclick="fetch_source(); reset_content(); this.form.reset()">Clear</button>
+                    </div>
+                </form>
+                
+                <div class="form-result" id="form-res"></div>
+                
+                <button class="show-button" id="show-more" onclick="show_more_news()">Show More</button>
+                <button class="show-button" id="show-less" onclick="show_less_news()">Show Less</button>
+                <br>
+
+            </div>
+        </div>
+
+        <script>
+            document.getElementById("form-sub").addEventListener("click", function(){
+                fetch_result();
+            });
+        </script>
+
+    </body>
+</html>
