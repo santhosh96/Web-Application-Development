@@ -1,11 +1,19 @@
 from flask import Flask, request, jsonify
 from newsapi import NewsApiClient
 from collections import Counter
+from dotenv import load_dotenv
+import os
 import json
 
 application = Flask(__name__)
 
-newsapi = NewsApiClient(api_key='25b752081b804f05a3793450a93ab0c6')
+APP_DIR = os.path.join(os.path.dirname(__file__), '.')
+ENV_PATH = os.path.join(APP_DIR, '.env')
+load_dotenv(ENV_PATH)
+
+news_api_key = os.getenv('NEWS_API_KEY')
+
+newsapi = NewsApiClient(api_key=news_api_key)
 
 # api route for fetching top headlines
 @application.route("/api/get_top_headlines", methods=['GET'])
