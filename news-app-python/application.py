@@ -2,10 +2,12 @@ from flask import Flask, request, jsonify
 from newsapi import NewsApiClient
 from collections import Counter
 from dotenv import load_dotenv
+from flask_cors import CORS
 import os
 import json
 
 application = Flask(__name__)
+CORS(application)
 
 APP_DIR = os.path.join(os.path.dirname(__file__), '.')
 ENV_PATH = os.path.join(APP_DIR, '.env')
@@ -307,4 +309,4 @@ def check_validity(data, outer_keys, source_keys):
 
 if __name__ == "__main__":
 	application.debug = True
-	application.run(port=9000)
+	application.run(host='0.0.0.0', port='9000')
