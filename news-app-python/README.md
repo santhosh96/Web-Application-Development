@@ -12,31 +12,38 @@ These instructions will get you a copy of the project up and running on your loc
 
 * Python (3.7 or greater)
 * Flask (1.1.2 or greater)
+* [Google News API Key](https://newsapi.org/register)
 
-### Installing
+### Installation
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+#### Creating an environment variable file
+* [Register](https://newsapi.org/register) for getting a News API Key
+* Replace the <environment_key> with your environment key
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
+echo 'NEWS_API_KEY=<environment_key>' > .env 
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+#### Docker way
 
-## Deployment
+```
+./deploy_setup.sh
+```
 
-Add additional notes about how to deploy this on a live system
+#### Virtual environment way
 
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* Creating a virtual environment
+```
+python3 -m venv flask-server
+```
+* Initializing the environment
+```
+source flask-server/bin/activate
+```
+* Installing the required packages
+```
+pip3 install -r requirements.txt
+```
+* Staring the application
+```
+python3 application.py
+```
